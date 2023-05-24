@@ -23,4 +23,6 @@ public interface MemberMapper {
     void update(@Param("memberDTO") MemberDTO memberDTO, @Param("id") String id);
 
     Optional<Member> findById(String id);
+
+    void delete(String id);
 }

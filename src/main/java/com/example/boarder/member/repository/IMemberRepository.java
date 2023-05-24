@@ -25,6 +25,13 @@ public interface IMemberRepository {
     void update(MemberDTO memberDTO, String id);
 
     /**
+     * 회원삭제
+     * @param id
+     */
+
+    void delete(String id);
+
+    /**
      * 회원 업데이트
      *
      * @param id

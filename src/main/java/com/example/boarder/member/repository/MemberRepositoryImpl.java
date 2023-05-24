@@ -30,6 +30,11 @@ public class MemberRepositoryImpl implements IMemberRepository {
     }
 
     @Override
+    public void delete(String id) {
+        this.memberMapper.delete(id);
+    }
+
+    @Override
     public Optional<Member> findByMember(String id) {
         return this.memberMapper.findById(id);
     }
