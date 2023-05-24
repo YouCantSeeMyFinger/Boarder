@@ -16,6 +16,11 @@ public class OracleTest {
     @Autowired
     JdbcTemplate jdbcTemplate;
 
+    /**
+     * Oracle Connection Test
+     * @throws SQLException
+     */
+
     @Test
     public void testConnection() throws SQLException {
         String sql = """
