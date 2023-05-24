@@ -1,4 +1,4 @@
-package com.example.boarder.member.repository;
+package com.example.boarder.member.mapper;
 
 
 import com.example.boarder.domain.Member;

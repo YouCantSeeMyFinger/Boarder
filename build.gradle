@@ -33,7 +33,7 @@ dependencies {
     implementation 'com.oracle.database.security:osdt_core'
 
     // Mybatis 설정
-    implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.2.0'
+    implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.1'
 
     // 테스트시 롬복사용
     testCompileOnly 'org.projectlombok:lombok'

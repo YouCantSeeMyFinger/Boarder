@@ -3,6 +3,7 @@ package com.example.boarder.member.repository;
 
 import com.example.boarder.domain.Member;
 import com.example.boarder.member.dto.MemberDTO;
+import com.example.boarder.member.mapper.MemberMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 

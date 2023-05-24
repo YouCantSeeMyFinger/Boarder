@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--mapper => namespace MemberMapper 실제 경로를 기입-->
+<mapper namespace="com.example.boarder.member.mapper.MemberMapper">
+
+    <insert id="save" useGeneratedKeys="false" keyProperty="ID">
+        INSERT INTO MEMBERSHIP(ID, PASSWORD, USER_NAME)
+        VALUES (#{id}, #{password}, #{userName})
+    </insert>
+
+    <update id="update">
+        UPDATE MEMBERSHIP
+        SET ID       = #{memberDTO.id},
+            PASSWORD = #{meberDTO.password}
+        WHERE #{id}
+    </update>
+
+    <select id="findById">
+        SELECT ID, PASSWORD, USER_NAME
+        FROM MEMBERSHIP
+        WHERE ID = #{ID}
+    </select>
+</mapper>
