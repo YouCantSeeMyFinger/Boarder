@@ -14,10 +14,12 @@ import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.*;
 
-
 /**
- * Test에서의 Transcational 어노테이션은 테스트 메소드가 하나 실행되고 롤백된다.
- */
+ * Test에서의 Transcational 어노테이션은 테스트 메소드가 하나 실행되고 롤백된다. <br><br>
+ *
+ * 기본적인 CRUD 테스트
+ *
+ * */
 
 @Slf4j
 @SpringBootTest
@@ -64,11 +66,12 @@ public class MemberRepositoryTest {
     @Test
     public void update() {
         Optional<Member> test01 = this.memberRepository.findByMember("TEST01");
-        if (test01.isPresent()) {
-            Member member = test01.get();
+
+        test01.stream().forEach(member -> {
             MemberDTO memberDTO = new MemberDTO("TEST02", "1234");
             this.memberRepository.update(memberDTO, member.getId());
-        }
+        });
+
         this.memberRepository.findByMember("TEST02");
     }
 }
