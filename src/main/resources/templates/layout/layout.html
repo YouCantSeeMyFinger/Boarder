@@ -56,22 +56,22 @@
                 </ul>
             </li>
             <li><a href="#">Contact Us</a></li>
+
+            <div class="member-bar">
+                <li class="login"><a href="#" th:href="@{/login}">로그인</a></li>
+                <span>|</span>
+                <li class="membership"><a href="#" th:href="@{/membership}">회원가입</a></li>
+            </div>
         </ul>
     </div>
+</nav>
 
-    <!--  공통 끝  -->
-
-
-    <!--  각 페이지 별로 html => 비공통  -->
-    <div class="main-contents">
-        <div class="main-contents-wrap">
-            <div th:replace="${content}">
-            </div>
+<div class="main-contents">
+    <div class="main-contents-wrap">
+        <div th:replace="${content}">
         </div>
     </div>
-    <!--  각 페이지 별로 html  끝=> 비공통  -->
+</div>
 
-
-</nav>
 </body>
 </html>

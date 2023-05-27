@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{layout/layout :: layout (~{::title}, ~{::link}, ~{::script}, ~{::section})}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>회원가입</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/membershipForm.css"
+          th:href="@{/css/membershipForm.css}">
+    <script src="/static/js/membershipForm.js"
+            th:src="@{/js/membershipForm.js}"></script>
+</head>
+<body>
+<section>
+    <div class="container">
+        <h1>Create ID</h1>
+        <form>
+            <div class="form-group">
+                <label for="username">ID</label>
+                <input type="text" class="form-control" id="username" placeholder="ID">
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" id="password" placeholder="Password">
+            </div>
+            <div class="form-group">
+                <label for="name">UserName</label>
+                <input type="text" class="form-control" id="name" placeholder="UserName">
+            </div>
+            <button type="submit" class="btn btn-primary">Create</button>
+        </form>
+    </div>
+</section>
+</body>
+</html>
