@@ -9,6 +9,6 @@ public class HomeController {
 
     @GetMapping("/")
     public String main() {
-        return "/boarder/FreeBoarder";
+        return "/home/mainHome";
     }
 }
