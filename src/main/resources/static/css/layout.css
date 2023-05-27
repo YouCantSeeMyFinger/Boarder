@@ -36,7 +36,7 @@ nav ul li:hover {
 }
 
 nav ul li ul {
-    border-bottom: 5px solid #2ba0db;
+    border-bottom: 5px solid #F4A460;
     display: none;
     position: absolute;
     width: 250px;

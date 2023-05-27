@@ -1,0 +1,77 @@
+<!-- 이 페이지의 nav는 어떠한 html을 만들어도 공통적으로 사용될 layout입니다. -->
+
+<!doctype html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org"
+      th:fragment="layout(title,links,script,content)">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- 공통 -->
+
+    <!-- css  -->
+    <link rel="stylesheet" href="/css/layout.css"
+          th:href="@{/css/layout.css}">
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css">
+    <!-- css  -->
+
+    <!-- Javascript -->
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <script defer src="/js/layout.js" th:src="@{/js/layout.js}"></script>
+    <!-- Javascript -->
+    <!-- 공통 끝 -->
+
+    <!-- layout :: llinks , script -->
+    <th:block th:replace="${links}"></th:block>
+    <th:block th:replace="${script}"></th:block>
+
+    <!-- layout :: title -->
+    <title th:replace="${title}">게시판 만들기</title>
+
+
+</head>
+<body>
+<!-- 공통 -->
+<!-- layout :: header -->
+<nav>
+    <div class="container">
+        <ul class="menubar">
+            <li><a href="#" class="main-menu" th:href="@{/}">Home</a></li>
+            <li><a href="#" class="main-menu" th:href="@{/}">About Us</a></li>
+            <li><a href="#" class="main-menu">Bulletin Board<i class='fa fa-angle-down'></i></a>
+                <ul class="sub-menu">
+                    <li><a href="#">자유 게시판</a></li>
+                    <li><a href="#">사진 게시판</a></li>
+                    <li><a href="#">개그 게시판</a></li>
+                </ul>
+            </li>
+            <li class="main-menu"><a href="#">Customer Support<i class='fa fa-angle-down'></i></a>
+                <ul class="sub-menu">
+                    <li><a href="#">자주묻는 질문</a></li>
+                    <li><a href="#">신고하기</a></li>
+                    <li><a href="#">건의하기</a></li>
+                    <li><a href="#">블랙리스트</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Contact Us</a></li>
+        </ul>
+    </div>
+
+    <!--  공통 끝  -->
+
+
+    <!--  각 페이지 별로 html => 비공통  -->
+    <div class="main-contents">
+        <div class="main-contents-wrap">
+            <div th:replace="${content}">
+            </div>
+        </div>
+    </div>
+    <!--  각 페이지 별로 html  끝=> 비공통  -->
+
+
+</nav>
+</body>
+</html>
