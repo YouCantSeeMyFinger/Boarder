@@ -27,4 +27,5 @@ public interface MemberMapper {
     void delete(String id);
 
     int checkDuplicatedId(String id);
+
 }

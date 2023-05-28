@@ -13,8 +13,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import java.util.List;
-
 @Slf4j
 @Controller
 @RequiredArgsConstructor
@@ -41,7 +39,7 @@ public class MembershipController {
         }
 
         // 성공하면 home 이동
-        Member member = new Member(memberValidationForm.getId(), memberValidationForm.getPassword(), memberValidationForm.getUserName());
+        Member member = new Member(memberValidationForm.getId(), memberValidationForm.getPassword(), memberValidationForm.getUsername());
         Member save = this.iMemberService.save(member);
         return "redirect:/";
     }

@@ -19,5 +19,5 @@ public class MemberValidationForm {
 
     @NotBlank(message = "UserName을 입력해주세요.")
     @Pattern(regexp = "^(?!.*\\s)[a-zA-Z0-9]{1,10}$", message = "UserName은 알파벳과 숫자로 이루어진 1~10자여야 합니다.")
-    private String userName;
+    private String username;
 }

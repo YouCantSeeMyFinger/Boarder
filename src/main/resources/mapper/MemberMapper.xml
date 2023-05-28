@@ -26,6 +26,6 @@
     <select id="checkDuplicatedId" resultType="java.lang.Integer">
         SELECT COUNT(*)
         FROM MEMBERSHIP
-        WHERE  ID = #{ID}
+        WHERE ID = #{ID}
     </select>
 </mapper>

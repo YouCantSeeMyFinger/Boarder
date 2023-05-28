@@ -42,4 +42,5 @@ public interface IMemberRepository {
     Optional<Member> findByMember(String id);
 
     int checkDuplicatedId(String id);
+
 }
