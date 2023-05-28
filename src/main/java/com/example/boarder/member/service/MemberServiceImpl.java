@@ -28,4 +28,5 @@ public class MemberServiceImpl implements IMemberService {
     public Optional<Member> findByMember(String id) {
         return this.memberRepository.findByMember(id);
     }
+
 }

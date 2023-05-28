@@ -17,7 +17,7 @@
         WHERE ID = #{id}
     </update>
 
-    <select id="findById">
+    <select id="findById" resultType="com.example.boarder.domain.Member">
         SELECT ID, PASSWORD, USER_NAME
         FROM MEMBERSHIP
         WHERE ID = #{ID}
