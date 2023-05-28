@@ -12,6 +12,4 @@ public interface IMemberService {
     void update(MemberDTO memberDTO, String id);
 
     Optional<Member> findByMember(String id);
-
-
 }

@@ -21,22 +21,36 @@
         <div class="row justify-content-center">
             <div class="col-md-6">
                 <h1 class="text-center">Create ID</h1>
-                <form>
+
+                <form method="post" action="/membership" th:object="${memberform}">
+
                     <div class="form-group">
-                        <label for="username">ID</label>
-                        <input type="text" class="form-control" id="username" placeholder="ID">
+                        <label for="id">ID</label>
+                        <input type="text" class="form-control" id="id" placeholder="ID" th:field="*{id}"
+                               th:errorclass="field-error">
+
+                        <div class="field-error" th:errors="*{id}"></div>
                     </div>
+
                     <div class="form-group">
                         <label for="password">Password</label>
-                        <input type="password" class="form-control" id="password" placeholder="Password">
+                        <input type="password" class="form-control" id="password" placeholder="Password"
+                               th:field="*{password}">
+                        <div class="field-error" th:errors="*{password}"></div>
                     </div>
+
                     <div class="form-group">
-                        <label for="name">UserName</label>
-                        <input type="text" class="form-control" id="name" placeholder="UserName">
+                        <label for="username">UserName</label>
+                        <input type="text" class="form-control" id="username" placeholder="UserName"
+                               th:field="*{userName}">
+                        <div class="field-error" th:errors="*{userName}"></div>
                     </div>
+
                     <button type="submit" class="btn btn-primary">Create</button>
+
                 </form>
             </div>
+
         </div>
     </div>
 </section>

@@ -25,4 +25,6 @@ public interface MemberMapper {
     Optional<Member> findById(String id);
 
     void delete(String id);
+
+    int checkDuplicatedId(String id);
 }
