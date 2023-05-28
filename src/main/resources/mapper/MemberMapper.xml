@@ -13,18 +13,12 @@
     <update id="update">
         UPDATE MEMBERSHIP
         SET ID       = #{memberDTO.id},
-            PASSWORD = #{memberDTO.password}
-        WHERE ID = #{id}
+            PASSWORD = #{meberDTO.password}
+        WHERE #{id}
     </update>
 
     <select id="findById">
         SELECT ID, PASSWORD, USER_NAME
-        FROM MEMBERSHIP
-        WHERE ID = #{ID}
-    </select>
-
-    <select id="checkDuplicatedId" resultType="java.lang.Integer">
-        SELECT COUNT(*)
         FROM MEMBERSHIP
         WHERE ID = #{ID}
     </select>

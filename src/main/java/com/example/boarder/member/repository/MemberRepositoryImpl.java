@@ -39,8 +39,4 @@ public class MemberRepositoryImpl implements IMemberRepository {
         return this.memberMapper.findById(id);
     }
 
-    @Override
-    public int checkDuplicatedId(String id) {
-        return this.memberMapper.checkDuplicatedId(id);
-    }
 }

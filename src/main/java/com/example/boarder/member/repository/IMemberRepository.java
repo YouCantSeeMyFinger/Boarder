@@ -26,7 +26,6 @@ public interface IMemberRepository {
 
     /**
      * 회원삭제
-     *
      * @param id
      */
 
@@ -40,7 +39,4 @@ public interface IMemberRepository {
      */
 
     Optional<Member> findByMember(String id);
-
-    int checkDuplicatedId(String id);
-
 }
