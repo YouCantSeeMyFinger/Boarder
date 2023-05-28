@@ -19,7 +19,7 @@
             <h2 class="mb-4 text-center">로그인</h2>
 
 
-            <form action="/login" method="post" th:object="${loginForm}">
+            <form action="/login" method="post" th:object="${loginForm}" onsubmit="validateForm()">
 
                 <div th:if="${#fields.hasGlobalErrors()}" class="global-error">
                     <p th:each=" err : ${#fields.globalErrors()}" th:text="${err}" class="global-error"></p>
