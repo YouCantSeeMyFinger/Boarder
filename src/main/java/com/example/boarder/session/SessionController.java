@@ -20,4 +20,5 @@ public class SessionController {
     public Object getSession(HttpSession session) {
         return session.getAttribute(SessionConst.LOGIN_MEMBER);
     }
+
 }
