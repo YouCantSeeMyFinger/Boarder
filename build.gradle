@@ -38,7 +38,6 @@ dependencies {
     // 테스트시 롬복사용
     testCompileOnly 'org.projectlombok:lombok'
     testAnnotationProcessor 'org.projectlombok:lombok'
-
 }
 
 tasks.named('test') {
