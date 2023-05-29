@@ -75,3 +75,13 @@ nav .fa.fa-angle-down {
 .sub-menu {
     z-index: 200;
 }
+
+
+/*동적 CSS*/
+.fas fa-chevron-down {
+    color: white;
+}
+
+.arrow-sub-menu-box a:hover {
+    background: black;
+}

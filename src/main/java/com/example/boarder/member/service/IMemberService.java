@@ -12,4 +12,6 @@ public interface IMemberService {
     void update(MemberDTO memberDTO, String id);
 
     Optional<Member> findByMember(String id);
+
+    Optional<Member> loginMember(String id, String password);
 }
