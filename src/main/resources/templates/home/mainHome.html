@@ -8,23 +8,58 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     <!-- ::title -->
-    <title>자유 게시판</title>
+    <title>신원균</title>
 
 
     <!-- ::link  -->
-    <link rel="stylesheet" type="text/css" href="/css/mainHome.css"
+    <link rel="stylesheet" type="text/css" href="/static/css/mainHome.css"
           th:href="@{/css/mainHome.css}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css"
+          integrity="sha512-17EgCFERpgZKcm0j0fEq1YCJuyAWdz9KUtv1EjVuaOz8pDnh/0nZxmU6BBXwaaxqoi9PQXnRWqlcDB027hgv9A=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css"
+          integrity="sha512-yHknP1/AwR+yx26cB1y0cjvQUMvEa2PFzt1c9LlS4pRQ5NOTZFWbhBig+X9G9eYW/8m0/4OXNx8pxJ6z57x0dw=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
 
     <!-- ::script   -->
     <script src="/js/mainHome.js"
-            th:src="@{/js/mainHome.js}"></script>
+            th:src="@{/js/mainHome.js}" defer></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"
+            integrity="sha512-XtmMtDEcNz2j7ekrtHvOVR4iwwaD6o/FUJe6+Zq+HgcCsk3kj4uSQQR8weQ2QVj1o0Pk6PwYLohm206ZzNfubg=="
+            crossorigin="anonymous" referrerpolicy="no-referrer" defer></script>
 
 </head>
 <body>
 
 <!-- ::content => section   -->
-<section>
-
+<section id="techStack">
+    <div class="techStack-photo">
+        <div class="image-container">
+            <center>
+                <img src="/static/images/bootStrap.jpg" alt="bootStrap" th:src="@{/images/bootStrap.jpg}">
+            </center>
+        </div>
+        <div class="image-container">
+            <center>
+                <img src="/static/images/css.jpg" alt="css" th:src="@{/images/css.jpg}">
+            </center>
+        </div>
+        <div class="image-container">
+            <center>
+                <img src="/static/images/HTML5.jpg" alt="HTML5" th:src="@{/images/HTML5.jpg}">
+            </center>
+        </div>
+        <div class="image-container">
+            <center>
+                <img src="/static/images/Javascript.jpg"
+                     th:src="@{/images/Javascript.jpg}" alt="Javascript">
+            </center>
+        </div>
+    </div>
 </section>
+
+
 </body>
 </html>
