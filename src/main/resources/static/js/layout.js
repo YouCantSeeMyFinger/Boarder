@@ -1,23 +1,3 @@
-$('.menubar li').hover(
-    // mouse over
-    () => {
-        $('ul', event.currentTarget).stop().slideDown(200);
-    },
-    // mouse out
-    () => {
-        $('ul', event.currentTarget).stop().slideUp(200);
-    }
-);
-
-
-$(document).ready(() => {
-    $("a:contains('Contact Us')").click(() => {
-        alert("개발자 : 신원균\n" +
-            "연락처 : 010- 3712 - 6634");
-    });
-});
-
-// 세션정보를 가져오는 JavaScript
 $(document).ready(
     function () {
         $.ajax({
@@ -47,29 +27,24 @@ $(document).ready(
                     const userName = loginMember.userName;
 
                     // class select
-                    const memberBar = $('.member-bar');
+                    const memberBar = $('.js-login-custom');
 
                     // class : '.member-bar' html 초기화
                     memberBar.empty();
 
-                    const loginMemberHtml =
-                        `<li class="login">
-                            <a>${userName}님 환영합니다.</a>
-                         </li>
-                         
-                         <li class="downarrow-box">
-                            <a><i class="fa fa-chevron-down"></i></a>
-                            <ul class="arrow-sub-menu-box">
-                                <li><a href="/mypage">My Page</a></li>    
-                                <li><a href="/logout">LogOut</a></li>    
-                            </ul>
-                         </li>`;
+                    const loginHTML = `
+                        <div class="d-flex justify-content-center align-items-center col">
+                            <a class="nav-link active text-white" aria-current="page">"${userName}" 님 환영합니다.</a>
+                        </div>
+                           
+                        <span class="text-white ml-2 mr-2">|</span>
+                        
+                        <div class="d-flex justify-content-center align-items-center col">
+                            <a class="nav-link active text-white" aria-current="page">INFO</a>
+                        </div>
+                    `;
 
-                    memberBar.append(loginMemberHtml);
-
-                    $('.downarrow-box').hover(() => {
-                        $(this).find('.arrow-sub-menu-box').slideToggle(200);
-                    });
+                    memberBar.append(loginHTML);
 
                 } else {
                     console.log('세션 정보 없음');
@@ -81,5 +56,27 @@ $(document).ready(
         });
     }
 );
+
+/**
+ *
+ *                     const loginMemberHtml =
+ *                         `<li class="login">
+ *                             <a>${userName}님 환영합니다.</a>
+ *                          </li>
+ *
+ *                          <li class="downarrow-box">
+ *                             <a><i class="fa fa-chevron-down"></i></a>
+ *                             <ul class="arrow-sub-menu-box">
+ *                                 <li><a href="/mypage">My Page</a></li>
+ *                                 <li><a href="/logout">LogOut</a></li>
+ *                             </ul>
+ *                          </li>`;
+ *
+ *                     memberBar.append(loginMemberHtml);
+ *
+ *                     $('.downarrow-box').hover(() => {
+ *                         $(this).find('.arrow-sub-menu-box').slideToggle(200);
+ *                     });
+ */
 
 
