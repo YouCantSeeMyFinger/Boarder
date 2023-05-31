@@ -85,3 +85,7 @@ nav .fa.fa-angle-down {
 .arrow-sub-menu-box a:hover {
     background: black;
 }
+
+.member-login-bar {
+    margin-left: 300px;
+}

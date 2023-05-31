@@ -1,38 +1,57 @@
+/*인트로 섹션*/
 
-.main-contents {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+#intro .intro-first-card {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 12rem;
+}
+/*인트로 4개 사진 부분*/
+#intro .col-4:nth-of-type(1) .intro-first-card {
+    background-image: url('./static/images/Javascript.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
 }
 
-#techStack {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    height: 300px;
-    width: 40vw;
-    border-radius: 20px;
-    margin: 20px;
-    background-color: #E0E0E0;
+#intro .col-4:nth-of-type(2) .intro-first-card {
+    background-image: url('../images/intro/intro2.jfif');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
 }
 
-.techStack-photo {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 30vw;
-    height: 200px;
-    border-radius: 20px;
-    margin: 10px;
+#intro .col-4:nth-of-type(3) .intro-first-card {
+    background-image: url('../images/intro/intro3.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
 }
 
-.image-container img {
-    border-radius: 20px;
-    height: 200px;
-    width: 100%;
+#intro .col-4:nth-of-type(4) .intro-first-card {
+    background-image: url('../images/intro/intro4.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 80%;
 }
 
-.image-container {
-    margin: 0px 20px 0px 20px;
+#intro .col-4:hover {
+    transform:  translateY(-0.8rem);
+    box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
 }
+
+
+#intro .intro-first-card .overlay {
+    left: 0;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+#intro .intro-first-card .overlay a {
+    transition: hover 0.4s ease;
+}
+
+#intro .intro-first-card .overlay a:hover {
+    color: red;
+}
+
