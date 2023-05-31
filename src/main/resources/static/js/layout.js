@@ -33,15 +33,27 @@ $(document).ready(
                     memberBar.empty();
 
                     const loginHTML = `
-                        <div class="d-flex justify-content-center align-items-center col">
-                            <a class="nav-link active text-white" aria-current="page">"${userName}" 님 환영합니다.</a>
+                        <div class="d-flex justify-content-center align-items-center col-6">
+                            <a class="nav-link active text-white" aria-current="page">"${userName}"님</a>
                         </div>
                            
                         <span class="text-white ml-2 mr-2">|</span>
                         
-                        <div class="d-flex justify-content-center align-items-center col">
-                            <a class="nav-link active text-white" aria-current="page">INFO</a>
-                        </div>
+                      <li class="nav-item dropdown d-flex justify-content-center align-items-center col">
+                      
+                             <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                INFO
+                             </a>
+                         
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#" th:href="@{/freeBoarder}">로그아웃</a></li>
+                                <hr>
+                                <li><a class="dropdown-item" href="#" th:href="@{/phothBoarder}">글 목록</a></li>
+                                <hr>
+                                <li><a class="dropdown-item" href="#" th:href="@{/marketBoarder}">내 정보</a></li>
+                            </ul>
+                      </li>
                     `;
 
                     memberBar.append(loginHTML);
