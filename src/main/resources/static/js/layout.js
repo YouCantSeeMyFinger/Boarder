@@ -47,7 +47,7 @@ $(document).ready(
                              </a>
                          
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#" th:href="@{/freeBoarder}">로그아웃</a></li>
+                                <li><a class="dropdown-item" href="#" th:href="@{/logout}">로그아웃</a></li>
                                 <hr>
                                 <li><a class="dropdown-item" href="#" th:href="@{/phothBoarder}">글 목록</a></li>
                                 <hr>
