@@ -23,7 +23,11 @@
 }
 
 
-#search_button {
+.search_button {
+    background-color: black;
+}
+
+.search_button:hover {
     background-color: #373737;
 }
 

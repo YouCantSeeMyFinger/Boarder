@@ -10,11 +10,19 @@ public class FreeBoarderController {
 
     @GetMapping("/freeBoarder")
     public String freeBoarder() {
-        return "/boarder/freeBoarder";
+        return "/freeboarder/freeBoarder";
     }
 
+
+    // TODO 아래의 메소드는 검색 기능을 구현하기 위해 만들어놓은 메소드
     @PostMapping("/freeBoarder-filter")
     public String freeBoarder_filter() {
-        return "/boarder/freeBoarder";
+        return "/freeboarder/freeBoarder";
+    }
+
+
+    @GetMapping("/freeboarder/write_boarder")
+    public String write_boarder() {
+        return "/freeboarder/write";
     }
 }
