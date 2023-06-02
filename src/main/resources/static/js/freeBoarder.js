@@ -13,8 +13,9 @@ $(document).ready(
         // 참고로 ceil을 사용하나 이유는 0값을 다루기가 까다롭기 때문이다.
         const totalPages = Math.ceil(DataNumber / itemPerPage);
 
-        // pagination 선택
-        const pagination = document.querySelector('.pagination');
+        // pagination ID선택
+        const addpagination = $('#add-pagination');
+        // const addpagination = document.querySelector('#add-pagination');
 
         // 기존의 pagination은 1개 만들어야할 pagination은 -1개
         const createPagination = totalPages - 1;
@@ -42,9 +43,8 @@ $(document).ready(
             link.textContent = pageNumber.toString();
 
             listItem.appendChild(link);
-            pagination.appendChild(listItem);
 
-            console.log('listItem : ', listItem);
+            addpagination.append(listItem);
         }
 
 
