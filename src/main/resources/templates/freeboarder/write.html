@@ -31,24 +31,26 @@
     </div>
 
     <div class="container mt-4">
-        <div class="mb-4">
-            제목 :
-            <input type="email" class="form-control mt-2" id="freeboarder_write_boarder_title"
-                   placeholder="글 제목을 입력해주세요.">
-        </div>
+        <form action="/freeBoarder" method="post">
+            <div class="mb-4">
+                제목 :
+                <input type="email" class="form-control mt-2" id="freeboarder_write_boarder_title"
+                       placeholder="글 제목을 입력해주세요.">
+            </div>
 
-        <div class="mb-4">
-            본문 :
-            <textarea class="form-control mt-2" id="freeboarder_write_boarder_main" rows="8"
-                      placeholder="바른말 고운말 사용합시다.">
+            <div class="mb-4">
+                본문 :
+                <textarea class="form-control mt-2" id="freeboarder_write_boarder_main" rows="8"
+                          placeholder="바른말 고운말 사용합시다.">
             </textarea>
-        </div>
-    </div>
+            </div>
 
-    <form action="/freeBoarder" method="post" class="d-flex justify-content-end container">
-        <button type="submit" class="btn btn-primary col-1 m-2">저장</button>
-        <a th:href="@{/freeBoarder}" href="#" class="btn btn-primary col-1 m-2">취소</a>
-    </form>
+            <div class="d-flex justify-content-end">
+                <button type="submit" class="btn btn-primary col-1 m-1">저장</button>
+                <a th:href="@{/freeBoarder}" href="#" class="btn btn-primary col-1 m-1">취소</a>
+            </div>
+        </form>
+    </div>
 </section>
 
 <!--
