@@ -11,6 +11,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 @Slf4j
 @Controller
 @RequiredArgsConstructor
@@ -50,8 +53,10 @@ public class FreeBoarderController {
      */
     @PostMapping("/freeBoarder")
     public String freeBoarderPost(@ModelAttribute("BoarderDTO") BoarderDTO boarderDTO) {
-        log.info("title : {}", boarderDTO.getTitle());
-        log.info("post_content : {}", boarderDTO.getPost_content());
-        return "/freeboarder/freeBoarder";
+        FreeBoarder freeBoarder = new FreeBoarder
+                (boarderDTO.getTitle(), "TEST", boarderDTO.getPost_content(), "tlsqhdrbs");
+        log.info("\n\n\n\nfreeBoarder : {}", freeBoarder.toString());
+        this.iBoarderRepo.save(freeBoarder);
+        return "redirect:/freeBoarder";
     }
 }

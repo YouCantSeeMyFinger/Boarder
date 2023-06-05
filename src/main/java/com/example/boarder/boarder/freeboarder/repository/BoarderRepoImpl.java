@@ -5,6 +5,7 @@ import com.example.boarder.domain.FreeBoarder;
 import com.example.boarder.member.dto.BoarderDTO;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Optional;
 
@@ -12,7 +13,7 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class BoarderRepoImpl implements IBoarderRepo {
 
-    private IBoarderMapper iBoarderMapper;
+    private final IBoarderMapper iBoarderMapper;
 
     @Override
     public FreeBoarder save(FreeBoarder freeBoarder) {
@@ -34,6 +35,4 @@ public class BoarderRepoImpl implements IBoarderRepo {
     public void deleteBoarder(String title) {
         this.iBoarderMapper.deleteBoarder(title);
     }
-
-
 }

@@ -1,4 +1,4 @@
-package com.example.boarder.member.service;
+package com.example.boarder.member.repository.service;
 
 import com.example.boarder.domain.Member;
 import com.example.boarder.member.dto.MemberDTO;

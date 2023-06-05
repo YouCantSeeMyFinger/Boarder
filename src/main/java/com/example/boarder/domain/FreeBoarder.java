@@ -1,9 +1,7 @@
 package com.example.boarder.domain;
 
 
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 import java.time.LocalDateTime;
 
@@ -14,12 +12,18 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @ToString
+@NoArgsConstructor
 public class FreeBoarder {
-    private Integer boarder_number;
+    private String boarder_number;
     private String title;
     private String author;
-    private LocalDateTime created_table_date;
-    private Integer view_count;
     private String post_content;
     private String membership_id;
+
+    public FreeBoarder(String title, String author, String post_content, String membership_id) {
+        this.title = title;
+        this.author = author;
+        this.post_content = post_content;
+        this.membership_id = membership_id;
+    }
 }

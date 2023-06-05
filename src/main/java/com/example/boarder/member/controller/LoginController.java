@@ -3,7 +3,7 @@ package com.example.boarder.member.controller;
 
 import com.example.boarder.domain.Member;
 import com.example.boarder.member.dto.LoginForm;
-import com.example.boarder.member.service.IMemberService;
+import com.example.boarder.member.repository.service.IMemberService;
 import com.example.boarder.session.SessionConst;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;

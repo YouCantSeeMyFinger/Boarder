@@ -1,7 +1,7 @@
 package com.example.boarder.member.controller;
 
 import com.example.boarder.domain.Member;
-import com.example.boarder.member.service.IMemberService;
+import com.example.boarder.member.repository.service.IMemberService;
 import com.example.boarder.member.validation.CheckDuplicateIdValidation;
 import com.example.boarder.member.validation.MemberValidationForm;
 import jakarta.validation.Valid;

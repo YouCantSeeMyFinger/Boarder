@@ -1,11 +1,14 @@
 package com.example.boarder.config;
 
 
+import com.example.boarder.boarder.freeboarder.mapper.IBoarderMapper;
+import com.example.boarder.boarder.freeboarder.repository.BoarderRepoImpl;
+import com.example.boarder.boarder.freeboarder.repository.IBoarderRepo;
 import com.example.boarder.member.repository.IMemberRepository;
 import com.example.boarder.member.mapper.MemberMapper;
 import com.example.boarder.member.repository.MemberRepositoryImpl;
-import com.example.boarder.member.service.IMemberService;
-import com.example.boarder.member.service.MemberServiceImpl;
+import com.example.boarder.member.repository.service.IMemberService;
+import com.example.boarder.member.repository.service.MemberServiceImpl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -20,7 +23,10 @@ import org.springframework.context.annotation.Configuration;
 public class MybatisConfig {
 
     private final MemberMapper memberMapper;
+    private final IBoarderMapper iBoarderMapper;
 
+
+    // 회원 Bean 주입 부분
     @Bean
     public IMemberRepository memberRepository() {
         return new MemberRepositoryImpl(this.memberMapper);
@@ -30,4 +36,13 @@ public class MybatisConfig {
     public IMemberService iMemberService() {
         return new MemberServiceImpl(this.memberRepository());
     }
+    // 회원 Bean 주입 끝
+
+
+    // Boarder Bean 주입 부분
+    @Bean
+    public IBoarderRepo iBoarderRepo() {
+        return new BoarderRepoImpl(this.iBoarderMapper);
+    }
+    // Boarder Bean 주입 끝
 }
