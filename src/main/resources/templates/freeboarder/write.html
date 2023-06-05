@@ -31,17 +31,17 @@
     </div>
 
     <div class="container mt-4">
-        <form action="/freeBoarder" method="post">
+        <form action="/freeBoarder" method="post" th:object="${BoarderDTO}">
             <div class="mb-4">
                 제목 :
-                <input type="email" class="form-control mt-2" id="freeboarder_write_boarder_title"
-                       placeholder="글 제목을 입력해주세요.">
+                <input type="text" class="form-control mt-2" id="freeboarder_write_boarder_title"
+                       placeholder="글 제목을 입력해주세요." th:field="*{title}">
             </div>
 
             <div class="mb-4">
                 본문 :
                 <textarea class="form-control mt-2" id="freeboarder_write_boarder_main" rows="8"
-                          placeholder="바른말 고운말 사용합시다."></textarea>
+                          placeholder="바른말 고운말 사용합시다." th:field="*{post_content}"></textarea>
             </div>
 
             <div class="d-flex justify-content-end">

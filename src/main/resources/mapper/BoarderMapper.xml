@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- Mapper 선언 끝-->
+
+<!-- Mapper 실행 코드 시작-->
+<mapper namespace="com.example.boarder.boarder.freeboarder.mapper.IBoarderMapper">
+    <insert id="save" useGeneratedKeys="true" keyProperty="boarder_number">
+
+    </insert>
+</mapper>
