@@ -6,7 +6,17 @@
 <!-- Mapper 실행 코드 시작-->
 <mapper namespace="com.example.boarder.boarder.freeboarder.mapper.IBoarderMapper">
     <insert id="save" useGeneratedKeys="true" keyProperty="boarder_number">
-        INSERT INTO BOARDER(title, author , post_content , membership_id)
-        VALUES (#{title} , #{author} , #{post_content} , #{membership_id})
+        INSERT INTO BOARDER(title,
+                            author,
+                            created_table_date,
+                            post_content,
+                            membership_id,
+                            view_count)
+        VALUES (#{title},
+                #{author},
+                #{created_table_date},
+                #{post_content},
+                #{membership_id},
+                #{view_count})
     </insert>
 </mapper>

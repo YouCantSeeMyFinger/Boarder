@@ -19,6 +19,7 @@ import java.time.format.DateTimeFormatter;
 @RequiredArgsConstructor
 public class FreeBoarderController {
 
+
     private final IBoarderRepo iBoarderRepo;
 
     @GetMapping("/freeBoarder")
@@ -54,9 +55,10 @@ public class FreeBoarderController {
     @PostMapping("/freeBoarder")
     public String freeBoarderPost(@ModelAttribute("BoarderDTO") BoarderDTO boarderDTO) {
         FreeBoarder freeBoarder = new FreeBoarder
-                (boarderDTO.getTitle(), "TEST", boarderDTO.getPost_content(), "tlsqhdrbs");
-        log.info("\n\n\n\nfreeBoarder : {}", freeBoarder.toString());
-        this.iBoarderRepo.save(freeBoarder);
+                (boarderDTO.getTitle(), "TEST", LocalDateTime.now(), 0, boarderDTO.getPost_content(), "tlsqhdrbs");
+
+        FreeBoarder savedFreeBoarder = this.iBoarderRepo.save(freeBoarder);
+        log.info("savedFreeBoarder : {}", savedFreeBoarder);
         return "redirect:/freeBoarder";
     }
 }
