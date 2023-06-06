@@ -40,6 +40,8 @@
         </form>
 
         <table class="table table-dark table-hover text-center">
+
+            <!-- 테이블의 컬럼 -->
             <thead>
             <tr class="table-active">
                 <th scope="col">번호</th>
@@ -50,19 +52,19 @@
                 <th scope="col">좋아요</th>
             </tr>
             </thead>
+
+
             <tbody class="table-group-divider">
-            <!-- Test Data 시작 -->
 
-            <!--            <tr>-->
-            <!--                <th scope="row">18</th>-->
-            <!--                <td>테스트 글 마지막</td>-->
-            <!--                <td>테스터 마지막</td>-->
-            <!--                <td>Date(n)</td>-->
-            <!--                <td>final</td>-->
-            <!--                <td>final</td>-->
-            <!--            </tr>-->
+            <tr th:each=" boarder, status: ${boarderList}">
+                <th scope="row" th:text="${status.count}"></th>
+                <td th:text="${boarder.getTitle()}"></td>
+                <td th:text="${boarder.getAuthor()}"></td>
+                <td th:text="${#temporals.format(boarder.created_table_date, 'yyyy년 MM월 dd일 HH시 mm분')}"></td>
+                <td th:text="${boarder.getView_count()}"></td>
+                <td th:text="TODO"></td>
+            </tr>
 
-            <!-- Test Data 끝 -->
             </tbody>
         </table>
     </div>

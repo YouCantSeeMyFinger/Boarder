@@ -7,6 +7,7 @@ import com.example.boarder.member.dto.BoarderDTO;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -26,14 +27,15 @@ public class FreeBoarderController {
     /**
      * RedirectAttribute를 통해 객체르 받고 있다. <br><br>
      * 그냥 전체 목록을 조회해서 뿌려주어 해결이 된다면 굳이 RedirectAttribute를 사용하지 않아도 된다.<br><br>
-     *
-     * @param freeBoarder
+     * @ModelAttribute 말고 Model만 사용
+     * @param model
      * @return ModelAndVeiw
      */
     @GetMapping("/freeBoarder")
-    public String freeBoarder(@ModelAttribute("boarder_data") FreeBoarder freeBoarder) {
-        List<FreeBoarder> boarderAll = this.iBoarderRepo.findAllBoarder();
-        log.info("findAllBoarder : {}", boarderAll);
+    public String freeBoarder(Model model) {
+        List<FreeBoarder> boarderList = this.iBoarderRepo.findAllBoarder();
+        log.info("findAllBoarder : {}", boarderList);
+        model.addAttribute("boarderList", boarderList);
         return "/freeboarder/freeBoarder";
     }
 
@@ -64,12 +66,14 @@ public class FreeBoarderController {
      */
     @PostMapping("/freeBoarder")
     public String freeBoarderPost(@ModelAttribute("BoarderDTO") BoarderDTO boarderDTO) {
+
+        // TODO 회원만 클쓰기를 할 수 있도록 할 것 , 해당 회원이 작성한 글 목록을 보기 위해 JOIN을 사용 할 목적이다.
+
         FreeBoarder freeBoarder = new FreeBoarder
                 (boarderDTO.getTitle(), "TEST", LocalDateTime.now(), 0, boarderDTO.getPost_content(), "tlsqhdrbs");
 
         FreeBoarder savedFreeBoarder = this.iBoarderRepo.save(freeBoarder);
         log.info("savedFreeBoarder : {}", savedFreeBoarder);
-        // redirectAttributes.addFlashAttribute("boarder_data", savedFreeBoarder);
         return "redirect:/freeBoarder";
     }
 }
