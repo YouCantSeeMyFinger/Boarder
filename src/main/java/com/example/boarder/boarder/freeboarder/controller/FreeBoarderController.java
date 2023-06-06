@@ -10,9 +10,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
+import java.util.List;
 
 @Slf4j
 @Controller
@@ -22,8 +23,17 @@ public class FreeBoarderController {
 
     private final IBoarderRepo iBoarderRepo;
 
+    /**
+     * RedirectAttribute를 통해 객체르 받고 있다. <br><br>
+     * 그냥 전체 목록을 조회해서 뿌려주어 해결이 된다면 굳이 RedirectAttribute를 사용하지 않아도 된다.<br><br>
+     *
+     * @param freeBoarder
+     * @return ModelAndVeiw
+     */
     @GetMapping("/freeBoarder")
-    public String freeBoarder() {
+    public String freeBoarder(@ModelAttribute("boarder_data") FreeBoarder freeBoarder) {
+        List<FreeBoarder> boarderAll = this.iBoarderRepo.findAllBoarder();
+        log.info("findAllBoarder : {}", boarderAll);
         return "/freeboarder/freeBoarder";
     }
 
@@ -59,6 +69,7 @@ public class FreeBoarderController {
 
         FreeBoarder savedFreeBoarder = this.iBoarderRepo.save(freeBoarder);
         log.info("savedFreeBoarder : {}", savedFreeBoarder);
+        // redirectAttributes.addFlashAttribute("boarder_data", savedFreeBoarder);
         return "redirect:/freeBoarder";
     }
 }
