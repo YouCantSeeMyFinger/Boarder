@@ -9,7 +9,7 @@ import java.util.Optional;
 public interface IBoarderRepo {
     public FreeBoarder save(FreeBoarder freeBoarder);
 
-    public Optional<FreeBoarder> findBoarder(String title);
+    public Optional<FreeBoarder> findBoarder(Integer boarderNumber);
 
     public void updateBoarder(BoarderDTO boarderDTO, String title);
 

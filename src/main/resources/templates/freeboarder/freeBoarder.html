@@ -58,17 +58,20 @@
 
             <tr th:each=" boarder, status: ${boarderList}">
                 <th scope="row" th:text="${status.count}"></th>
-                <td th:text="${boarder.getTitle()}"></td>
+                <td>
+                    <a href="#"
+                       th:href="@{/freeboarder/contextBoarder/{number}(number = ${boarder.getBoarder_number()})}"
+                       th:text="${boarder.getTitle()}"
+                       class="text-decoration-none text-white"></a>
+                </td>
                 <td th:text="${boarder.getAuthor()}"></td>
                 <td th:text="${#temporals.format(boarder.created_table_date, 'yyyy년 MM월 dd일 HH시 mm분')}"></td>
                 <td th:text="${boarder.getView_count()}"></td>
                 <td th:text="TODO"></td>
             </tr>
-
             </tbody>
         </table>
     </div>
-
     <nav class="bg-white">
         <ul class="pagination">
             <li class="page-item">
@@ -89,11 +92,9 @@
         </ul>
     </nav>
 </section>
-
 <!--
     이 부분에 코드를 아무리 작성하더라도 적용이 안됩니다.
     th:fragment로 인해 section태그의 모든 내용이 layout.html로 이동합니다.
 -->
-
 </body>
 </html>

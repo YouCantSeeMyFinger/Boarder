@@ -40,4 +40,17 @@
                membership_id
         FROM BOARDER
     </select>
+
+    <select id="findByBoarder" resultMap="freeBoarderMap">
+        SELECT BOARDER_NUMBER,
+               TITLE,
+               AUTHOR,
+               CREATED_TABLE_DATE,
+               VIEW_COUNT,
+               POST_CONTENT,
+               MEMBERSHIP_ID
+        FROM BOARDER
+        WHERE BOARDER_NUMBER = #{boarder_number}
+    </select>
+
 </mapper>

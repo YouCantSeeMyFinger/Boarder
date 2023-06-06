@@ -25,8 +25,8 @@ public class BoarderRepoImpl implements IBoarderRepo {
     }
 
     @Override
-    public Optional<FreeBoarder> findBoarder(String title) {
-        return this.iBoarderMapper.findByBoarder(title);
+    public Optional<FreeBoarder> findBoarder(Integer boarderNumber) {
+        return this.iBoarderMapper.findByBoarder(boarderNumber);
     }
 
     @Override

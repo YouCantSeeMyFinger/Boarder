@@ -13,7 +13,7 @@ import java.util.Optional;
 public interface IBoarderMapper {
     void save(FreeBoarder freeBoarder);
 
-    Optional<FreeBoarder> findByBoarder(String title);
+    Optional<FreeBoarder> findByBoarder(Integer boarderNumber);
 
     void updateBoarder(@Param("BoarderDTO") BoarderDTO boarderDTO, @Param("title") String title);
 
