@@ -49,4 +49,9 @@ public class BoarderRepoImpl implements IBoarderRepo {
     public List<FreeBoarder> findAllBoarder() {
         return new ArrayList<>(this.iBoarderMapper.findAllBoarder());
     }
+
+    @Override
+    public void updateViewCount(Integer boarderNumber) {
+        this.iBoarderMapper.updateViewCount(boarderNumber);
+    }
 }

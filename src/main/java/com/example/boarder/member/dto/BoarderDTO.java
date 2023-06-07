@@ -12,7 +12,6 @@ public class BoarderDTO {
     private String title;
     private String post_content;
 
-
     public BoarderDTO(String title, String post_content) {
         this.title = title;
         this.post_content = post_content;

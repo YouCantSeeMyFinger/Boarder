@@ -34,10 +34,9 @@ public class FreeBoarderController {
     @GetMapping("/freeBoarder")
     public String freeBoarder(Model model) {
         List<FreeBoarder> boarderList = this.iBoarderRepo.findAllBoarder();
-
-        // List log
-        log.info("boarderList : {}", boarderList);
-
+        for (FreeBoarder freeBoarder : boarderList) {
+            log.info("freeboarder : {}", freeBoarder);
+        }
         model.addAttribute("boarderList", boarderList);
         return "/freeboarder/freeBoarder";
     }
@@ -74,7 +73,6 @@ public class FreeBoarderController {
 
         FreeBoarder freeBoarder = new FreeBoarder
                 (boarderDTO.getTitle(), "TEST", LocalDateTime.now(), 0, boarderDTO.getPost_content(), "tlsqhdrbs");
-
         FreeBoarder savedFreeBoarder = this.iBoarderRepo.save(freeBoarder);
         return "redirect:/freeBoarder";
     }
@@ -88,12 +86,11 @@ public class FreeBoarderController {
      */
     @GetMapping("/freeboarder/contextBoarder/{number}")
     public String contextBoarder(@PathVariable("number") Integer boarderNumber, Model model) {
-        log.info("PathVariable Number : {} ", boarderNumber);
         // TODO findBoarder 할 시 객체가 없을 떄를 방지해서 Optional로 처리하였다. 하지만 PathVariable 값을 받아서 사용하므로 나중에 없애주는 작업을 할 수 있도록 하자.
         Optional<FreeBoarder> boarder = this.iBoarderRepo.findBoarder(boarderNumber);
-
         if (boarder.isPresent()) {
             FreeBoarder freeBoarder = boarder.get();
+            this.iBoarderRepo.updateViewCount(boarderNumber);
             model.addAttribute("boarderContext", freeBoarder);
         }
         return "freeboarder/contextBoarder";
@@ -111,13 +108,12 @@ public class FreeBoarderController {
      * 3. 그런데 현재 나는 VIEW를 redirect하여 출력한 데이터를 따로 가공할 필요가 없음 <br>
      * 4. 때문에 HtttpServletRequest 혹은 @RequestParam을 사용하는 것이 어떤가 생각
      *
-     * @param freeBoarder
      * @return ModelAndView
      */
 
     @PostMapping("/freeboarder/updatecontextBoarder")
     public String updateContextBoarder(@RequestParam("title") String title, HttpServletRequest request) {
-        String postContent = (String) request.getParameter("post_content");
+        String postContent = request.getParameter("post_content");
         int number = Integer.parseInt(request.getParameter("boarder_number"));
         BoarderDTO boarderDTO = new BoarderDTO(title, postContent);
         this.iBoarderRepo.updateBoarder(boarderDTO, number);

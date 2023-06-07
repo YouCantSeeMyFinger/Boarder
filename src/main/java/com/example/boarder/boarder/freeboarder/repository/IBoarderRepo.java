@@ -17,4 +17,6 @@ public interface IBoarderRepo {
     public void deleteBoarder(String title);
 
     public List<FreeBoarder> findAllBoarder();
+
+    public void updateViewCount(Integer boarderNumber);
 }

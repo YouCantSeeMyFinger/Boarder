@@ -58,12 +58,14 @@
 
             <tr th:each=" boarder, status: ${boarderList}">
                 <th scope="row" th:text="${status.count}"></th>
+
                 <td>
                     <a href="#"
                        th:href="@{/freeboarder/contextBoarder/{number}(number = ${boarder.getBoarder_number()})}"
                        th:text="${boarder.getTitle()}"
                        class="text-decoration-none text-white"></a>
                 </td>
+
                 <td th:text="${boarder.getAuthor()}"></td>
                 <td th:text="${#temporals.format(boarder.created_table_date, 'yyyy년 MM월 dd일 HH시 mm분')}"></td>
                 <td th:text="${boarder.getView_count()}"></td>

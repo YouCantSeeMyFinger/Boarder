@@ -21,4 +21,6 @@ public interface IBoarderMapper {
 
     List<FreeBoarder> findAllBoarder();
 
+    void updateViewCount(Integer boarderNumber);
+
 }
