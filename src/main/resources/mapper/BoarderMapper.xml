@@ -39,6 +39,7 @@
                post_content,
                membership_id
         FROM BOARDER
+        ORDER BY boarder_number ASC
     </select>
 
     <select id="findByBoarder" resultMap="freeBoarderMap">
@@ -56,10 +57,9 @@
     <update id="updateBoarder">
         UPDATE
             BOARDER
-        SET TITLE = #{boarderDTO.title},
+        SET TITLE        = #{boarderDTO.title},
             POST_CONTENT = #{boarderDTO.post_content}
-        WHERE
-            BOARDER_NUMBER = #{boarder_number}
+        WHERE BOARDER_NUMBER = #{boarder_number}
     </update>
 
 </mapper>

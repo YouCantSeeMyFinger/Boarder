@@ -34,6 +34,10 @@ public class FreeBoarderController {
     @GetMapping("/freeBoarder")
     public String freeBoarder(Model model) {
         List<FreeBoarder> boarderList = this.iBoarderRepo.findAllBoarder();
+
+        // List log
+        log.info("boarderList : {}", boarderList);
+
         model.addAttribute("boarderList", boarderList);
         return "/freeboarder/freeBoarder";
     }
