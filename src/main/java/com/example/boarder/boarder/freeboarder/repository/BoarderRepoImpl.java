@@ -30,8 +30,8 @@ public class BoarderRepoImpl implements IBoarderRepo {
     }
 
     @Override
-    public void updateBoarder(BoarderDTO boarderDTO, String title) {
-        this.iBoarderMapper.updateBoarder(boarderDTO, title);
+    public void updateBoarder(BoarderDTO boarderDTO, Integer boarder_number) {
+        this.iBoarderMapper.updateBoarder(boarderDTO, boarder_number);
     }
 
     @Override

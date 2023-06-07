@@ -15,7 +15,8 @@ public interface IBoarderMapper {
 
     Optional<FreeBoarder> findByBoarder(Integer boarderNumber);
 
-    void updateBoarder(@Param("BoarderDTO") BoarderDTO boarderDTO, @Param("title") String title);
+    void updateBoarder(@Param("boarderDTO") BoarderDTO boarderDTO, @Param("boarder_number") Integer boarder_number);
+
 
     void deleteBoarder(String title);
 

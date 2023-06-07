@@ -4,15 +4,12 @@ package com.example.boarder.boarder.freeboarder.controller;
 import com.example.boarder.boarder.freeboarder.repository.IBoarderRepo;
 import com.example.boarder.domain.FreeBoarder;
 import com.example.boarder.member.dto.BoarderDTO;
+import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -37,7 +34,6 @@ public class FreeBoarderController {
     @GetMapping("/freeBoarder")
     public String freeBoarder(Model model) {
         List<FreeBoarder> boarderList = this.iBoarderRepo.findAllBoarder();
-        log.info("findAllBoarder : {}", boarderList);
         model.addAttribute("boarderList", boarderList);
         return "/freeboarder/freeBoarder";
     }
@@ -76,7 +72,6 @@ public class FreeBoarderController {
                 (boarderDTO.getTitle(), "TEST", LocalDateTime.now(), 0, boarderDTO.getPost_content(), "tlsqhdrbs");
 
         FreeBoarder savedFreeBoarder = this.iBoarderRepo.save(freeBoarder);
-        log.info("savedFreeBoarder : {}", savedFreeBoarder);
         return "redirect:/freeBoarder";
     }
 
@@ -88,11 +83,40 @@ public class FreeBoarderController {
      * @return
      */
     @GetMapping("/freeboarder/contextBoarder/{number}")
-    public String contextBoarder(@PathVariable("number") Integer boarderNumber) {
+    public String contextBoarder(@PathVariable("number") Integer boarderNumber, Model model) {
         log.info("PathVariable Number : {} ", boarderNumber);
         // TODO findBoarder 할 시 객체가 없을 떄를 방지해서 Optional로 처리하였다. 하지만 PathVariable 값을 받아서 사용하므로 나중에 없애주는 작업을 할 수 있도록 하자.
         Optional<FreeBoarder> boarder = this.iBoarderRepo.findBoarder(boarderNumber);
-        log.info("boarder : {}", boarder);
+
+        if (boarder.isPresent()) {
+            FreeBoarder freeBoarder = boarder.get();
+            model.addAttribute("boarderContext", freeBoarder);
+        }
         return "freeboarder/contextBoarder";
+    }
+
+    /**
+     * 게시글 업데이트 컨트롤러이다. <br>
+     * 업데이트할 내용은 2가지 <br><br>
+     * 1. 수정된 제목 <br>
+     * 2. 수정된 내용 <br><br>
+     * <p>
+     * # Notice # <br>
+     * 1. 폼에서 전달되는 데이터를 전달 받기 위해 ModelAttribute를 남발<br>
+     * 2. 생각해보니 ModelAttribute는 객체를 생성하고 전달받은 데이터 (name 속성에 의해서)를 필드와 매핑시켜 값을 저장 후 Model에 담아 해당 뷰에서 객체를 사용 할 수 있도록 함<br>
+     * 3. 그런데 현재 나는 VIEW를 redirect하여 출력한 데이터를 따로 가공할 필요가 없음 <br>
+     * 4. 때문에 HtttpServletRequest 혹은 @RequestParam을 사용하는 것이 어떤가 생각
+     *
+     * @param freeBoarder
+     * @return ModelAndView
+     */
+
+    @PostMapping("/freeboarder/updatecontextBoarder")
+    public String updateContextBoarder(@RequestParam("title") String title, HttpServletRequest request) {
+        String postContent = (String) request.getParameter("post_content");
+        int number = Integer.parseInt(request.getParameter("boarder_number"));
+        BoarderDTO boarderDTO = new BoarderDTO(title, postContent);
+        this.iBoarderRepo.updateBoarder(boarderDTO, number);
+        return "redirect:/freeBoarder";
     }
 }

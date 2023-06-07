@@ -53,4 +53,13 @@
         WHERE BOARDER_NUMBER = #{boarder_number}
     </select>
 
+    <update id="updateBoarder">
+        UPDATE
+            BOARDER
+        SET TITLE = #{boarderDTO.title},
+            POST_CONTENT = #{boarderDTO.post_content}
+        WHERE
+            BOARDER_NUMBER = #{boarder_number}
+    </update>
+
 </mapper>

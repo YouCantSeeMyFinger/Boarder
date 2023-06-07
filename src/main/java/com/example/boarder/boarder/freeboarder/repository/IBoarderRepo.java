@@ -2,6 +2,7 @@ package com.example.boarder.boarder.freeboarder.repository;
 
 import com.example.boarder.domain.FreeBoarder;
 import com.example.boarder.member.dto.BoarderDTO;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 import java.util.Optional;
@@ -11,7 +12,7 @@ public interface IBoarderRepo {
 
     public Optional<FreeBoarder> findBoarder(Integer boarderNumber);
 
-    public void updateBoarder(BoarderDTO boarderDTO, String title);
+    public void updateBoarder(@Param("boarderDTO") BoarderDTO boarderDTO, @Param("boarder_number") Integer boarder_number);
 
     public void deleteBoarder(String title);
 
