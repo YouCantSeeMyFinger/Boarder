@@ -5,4 +5,8 @@
     2. Mybatis
     3. HTML
     4. CSS
-    5. oracle
+    5. oracle (전자지갑을 이용한 DB)
+    6. BootStrap
+    7. JavaScript
+    8. java
+    9. Thymeleaf
