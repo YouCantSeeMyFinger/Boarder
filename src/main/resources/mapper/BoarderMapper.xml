@@ -62,4 +62,10 @@
         WHERE BOARDER_NUMBER = #{boarder_number}
     </update>
 
+    <update id="updateViewCount">
+        UPDATE BOARDER
+        SET VIEW_COUNT = VIEW_COUNT + 1
+        WHERE BOARDER_NUMBER = #{boarderNumber}
+    </update>
+
 </mapper>

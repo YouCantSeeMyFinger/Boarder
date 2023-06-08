@@ -18,5 +18,5 @@ public interface IBoarderRepo {
 
     public List<FreeBoarder> findAllBoarder();
 
-    public void updateViewCount(Integer boarderNumber);
+    public void updateViewCount(@Param("boarderNumber") Integer boarderNumber);
 }
