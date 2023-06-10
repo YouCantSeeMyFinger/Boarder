@@ -1,5 +1,6 @@
 package com.example.boarder.boarder.freeboarder.repository;
 
+import com.example.boarder.boarder.freeboarder.dto.BoarderSearchDTO;
 import com.example.boarder.boarder.freeboarder.mapper.IBoarderMapper;
 import com.example.boarder.domain.FreeBoarder;
 import com.example.boarder.member.dto.BoarderDTO;
@@ -46,8 +47,8 @@ public class BoarderRepoImpl implements IBoarderRepo {
      * @return List
      */
     @Override
-    public List<FreeBoarder> findAllBoarder() {
-        return new ArrayList<>(this.iBoarderMapper.findAllBoarder());
+    public List<FreeBoarder> findAllBoarder(BoarderSearchDTO boarderSearchDTO) {
+        return new ArrayList<>(this.iBoarderMapper.findAllBoarder(boarderSearchDTO));
     }
 
     @Override

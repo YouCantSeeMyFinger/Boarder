@@ -32,13 +32,18 @@
 
     <select id="findAllBoarder" resultMap="freeBoarderMap">
         SELECT boarder_number,
-               title,
-               author,
-               created_table_date,
-               view_count,
-               post_content,
-               membership_id
+        title,
+        author,
+        created_table_date,
+        view_count,
+        post_content,
+        membership_id
         FROM BOARDER
+        <where>
+            <if test="searchBoarder.title != null and searchBoarder.title != ''">
+                AND title LIKE '%' || #{searchBoarder.title} || '%'
+            </if>
+        </where>
         ORDER BY boarder_number ASC
     </select>
 
@@ -67,5 +72,4 @@
         SET VIEW_COUNT = VIEW_COUNT + 1
         WHERE BOARDER_NUMBER = #{boarderNumber}
     </update>
-
 </mapper>

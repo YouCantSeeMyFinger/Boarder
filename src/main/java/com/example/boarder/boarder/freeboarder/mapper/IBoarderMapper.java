@@ -1,6 +1,7 @@
 package com.example.boarder.boarder.freeboarder.mapper;
 
 
+import com.example.boarder.boarder.freeboarder.dto.BoarderSearchDTO;
 import com.example.boarder.domain.FreeBoarder;
 import com.example.boarder.member.dto.BoarderDTO;
 import org.apache.ibatis.annotations.Mapper;
@@ -19,8 +20,7 @@ public interface IBoarderMapper {
 
     void deleteBoarder(String title);
 
-    List<FreeBoarder> findAllBoarder();
+    List<FreeBoarder> findAllBoarder(@Param("searchBoarder") BoarderSearchDTO boarderSearchDTO);
 
     void updateViewCount(Integer boarderNumber);
-
 }

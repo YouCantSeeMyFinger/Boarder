@@ -20,11 +20,11 @@
             </h2>
         </div>
 
-        <form class="row g-3 justify-content-end">
+        <form class="row g-3 justify-content-end" method="get" action="/freeBoarder-filter" th:object="${filter}">
             <div class="col-5">
                 <label for="filter" class="visually-hidden"></label>
                 <input type="text" class="form-control-plaintext border border-dark rounded text-center" id="filter"
-                       placeholder="검색어를 입력해주세요.">
+                       placeholder="검색어를 입력해주세요." th:field="*{title}">
             </div>
 
             <div class="col-auto">

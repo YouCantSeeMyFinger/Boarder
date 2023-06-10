@@ -1,5 +1,6 @@
 package com.example.boarder.boarder.freeboarder.repository;
 
+import com.example.boarder.boarder.freeboarder.dto.BoarderSearchDTO;
 import com.example.boarder.domain.FreeBoarder;
 import com.example.boarder.member.dto.BoarderDTO;
 import org.apache.ibatis.annotations.Param;
@@ -16,7 +17,7 @@ public interface IBoarderRepo {
 
     public void deleteBoarder(String title);
 
-    public List<FreeBoarder> findAllBoarder();
+    public List<FreeBoarder> findAllBoarder(BoarderSearchDTO boarderSearchDTO);
 
     public void updateViewCount(@Param("boarderNumber") Integer boarderNumber);
 }
