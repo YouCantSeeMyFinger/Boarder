@@ -10,6 +10,7 @@ import org.apache.ibatis.annotations.Param;
 import java.util.List;
 import java.util.Optional;
 
+
 @Mapper
 public interface IBoarderMapper {
     void save(FreeBoarder freeBoarder);
@@ -20,6 +21,7 @@ public interface IBoarderMapper {
 
     void deleteBoarder(String title);
 
+    // 이 메소드로 찾기 구현
     List<FreeBoarder> findAllBoarder(@Param("searchBoarder") BoarderSearchDTO boarderSearchDTO);
 
     void updateViewCount(Integer boarderNumber);
